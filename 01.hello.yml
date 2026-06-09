@@ -11,4 +11,4 @@ jobs:
       - name: Ver Fecha del runner
         run: date
       - name:
-        run: ls -la
+        run: ls
