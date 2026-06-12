@@ -29,13 +29,15 @@ jobs:
     steps:
       - name: Saludo
         env:
+          MESSAGE: "Probando variables de entorno"
           LOG_LEVEL: ${{ inputs.logging_level }}
           ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
           DRY_RUN: ${{ inputs.dry_run }}
           REASON: ${{ inputs.REASON }}
         run: |
           echo "Hola ${{ inputs.name }}"
-          echo "LOG_LEVEL: ${{ LOG_LEVEL }}"
-          echo "ENVIRONMENT: ${{ ENVIRONMENT }}"
-          echo "DRY_RUN: ${{ DRY_RUN }}"
-          echo "REASON: ${{ REASON }}"
+          echo "MESSAGE: $MESSAGE "
+          echo "LOG_LEVEL: LOG_LEVEL"
+          echo "ENVIRONMENT: $ENVIRONMENT "
+          echo "DRY_RUN: $DRY_RUN"
+          echo "REASON: $REASON"
