@@ -1,0 +1,16 @@
+name: manual
+on:
+        workflow_dispatch:
+            inputs:
+                name:
+                    description: 'Nombre del usuario'
+                    required: true
+                    default: 'GitHub Actions'
+jobs:
+    manual:
+        runs-on: ubuntu-24.04
+        steps:
+            - name: Saludo personalizado
+                run: echo "Hola ${{ github.event.inputs.name }} desde GitHub Actions!"
+            - name: Ver Fecha del runner
+                run: Date
