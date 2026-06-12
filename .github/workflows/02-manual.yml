@@ -10,7 +10,9 @@ jobs:
     manual:
         runs-on: ubuntu-24.04
         steps:
-            - name: Saludo personalizado
-                run: echo "Hola ${{ github.event.inputs.name }} desde GitHub Actions!"
-            - name: Ver Fecha del runner
-                run: Date
+            - name: Saludo
+                env:
+                    LOG_LEVEL:${{ inputs.logging_level }}
+                    ENVIRONMENT:${{ inputs.ENVIRONMENT }}
+                    DRY_RUN: ${{ inputs.dry_run }}
+                    REASON: ${{ inputs.REASON}}
