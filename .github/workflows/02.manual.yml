@@ -34,7 +34,7 @@ jobs:
           ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
           DRY_RUN: ${{ inputs.dry_run }}
           REASON: ${{ inputs.REASON }}
-          DATE: date
+          
         run: |
           echo "Hola ${{ inputs.name }}"
           echo "MESSAGE: $MESSAGE , $DATE"

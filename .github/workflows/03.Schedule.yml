@@ -1,0 +1,11 @@
+name: 03 - Schedule
+
+on:
+  schedule:
+    - cron: '0 9 * * *' # Ejecutar todos los días a las 9:00 AM UTC
+jobs:
+    scheduled:
+        runs-on: ubuntu-24.04
+        steps:
+            - name: Saludo programado
+              run: echo "¡Hola! Este es un saludo programado desde GitHub Actions."
