@@ -1,18 +1,18 @@
 name: 04 - Events
 
 on:
-    issues:
-        types: [opened, reopened]
-        
+  issues:
+    types: [opened, reopened]
+
 jobs:
-    issue_event:
-        runs-on: ubuntu-24.04
-        steps:
-            - name: Saludo por evento de issue
-              run: |
-                echo "¡Hola! Se ha abierto o reabierto un issue en el repositorio."
-                echo "Event: ${{ github.event_name }}"
-                echo "Action: ${{ github.event.action }}"
-                echo "Issue Title: ${{ github.event.issue.title }}"
-                echo "Issue URL: ${{ github.event.issue.html_url }}"
-                echo "token ${{ github.token}}"
+  issue_event:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Saludo por evento de issue
+        run: |
+          echo "¡Hola! Se ha abierto o reabierto un issue en el repositorio."
+          echo "Event: ${{ github.event_name }}"
+          echo "Action: ${{ github.event.action }}"
+          echo "Issue Title: ${{ github.event.issue.title }}"
+          echo "Issue URL: ${{ github.event.issue.html_url }}"
+          echo "token ${{ github.token }}"
