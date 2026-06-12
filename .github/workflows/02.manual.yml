@@ -1,0 +1,41 @@
+name: manual
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Nombre del usuario'
+        required: true
+        default: 'GitHub Actions'
+      logging_level:
+        description: 'Nivel de logging'
+        required: false
+        default: 'INFO'
+      ENVIRONMENT:
+        description: 'Ambiente'
+        required: false
+        default: 'dev'
+      dry_run:
+        description: 'Ejecutar en modo seco'
+        required: false
+        default: 'false'
+      REASON:
+        description: 'Razón de la ejecución'
+        required: false
+        default: 'Manual trigger'
+
+jobs:
+  manual:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Saludo
+        env:
+          LOG_LEVEL: ${{ inputs.logging_level }}
+          ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          REASON: ${{ inputs.REASON }}
+        run: |
+          echo "Hola ${{ inputs.name }}"
+          echo "LOG_LEVEL: $LOG_LEVEL"
+          echo "ENVIRONMENT: $ENVIRONMENT"
+          echo "DRY_RUN: $DRY_RUN"
+          echo "REASON: $REASON"
